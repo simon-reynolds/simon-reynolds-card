@@ -25,7 +25,7 @@ const data = {
   bitbucket: chalk.gray('https://bitbucket.org/') + chalk.yellow('simontaite'),
   nuget: chalk.gray('https://www.nuget.org/profiles/') + chalk.magenta('simontaite'),
   linkedin: chalk.gray('https://linkedin.com/in/') + chalk.blue('simonreynolds7'),
-  web: chalk.cyan('https://simontaite.com'),
+  web: chalk.gray('https://simontaite.com'),
   npx: chalk.red('npx') + ' ' + chalk.white('simontaite'),
   labelWork: chalk.white.bold('       Work:'),
   labelLanguages: chalk.white.bold('  Languages:'),
