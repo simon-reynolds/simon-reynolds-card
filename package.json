@@ -1,17 +1,17 @@
 {
-  "name": "simontaite",
-  "version": "1.0.1",
-  "description": "A personal card for Simon Taite (@simontaite)",
+  "name": "@simon-reynolds/simonreynolds",
+  "version": "1.0.2",
+  "description": "A personal card for Simon Reynolds (@simontaite)",
   "main": "/bin/card.js",
   "bin": {
     "simontaite": "./bin/card.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/simontaite/simon-taite-card.git"
+    "url": "https://github.com/simon-reynolds/simon-reynolds-card.git"
   },
   "scripts": {
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "build": "node build.js",
     "dev": "npm run build && node ./bin/card.js",
     "lint": "standard",
@@ -25,7 +25,7 @@
     "npx card",
     "business card"
   ],
-  "author": "Simon Taite <simon@simontaite.com> (https://simontaite.com)",
+  "author": "Simon Reynolds <simon@simonreynolds.ie> (https://simonreynolds.ie)",
   "license": "MIT",
   "files": [
     "bin/card.js",

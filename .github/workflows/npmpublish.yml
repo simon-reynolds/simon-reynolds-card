@@ -3,10 +3,10 @@ name: Node.js Package
 on:
   pull_request:
     branches:
-      - master
+      - main
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -33,17 +33,17 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
-  #publish-gpr:
-  #  needs: build
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - uses: actions/checkout@v1
-  #    - uses: actions/setup-node@v1
-  #      with:
-  #        node-version: 12
-  #        registry-url: https://npm.pkg.github.com/
-  #        scope: '@simontaite'
-  #    - run: npm publish
-  #      if: github.event == 'push'
-  #      env:
-  #        NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  publish-gpr:
+   needs: build
+   runs-on: ubuntu-latest
+   steps:
+     - uses: actions/checkout@v1
+     - uses: actions/setup-node@v1
+       with:
+         node-version: 12
+         registry-url: https://npm.pkg.github.com/
+         scope: '@simontaite'
+     - run: npm publish
+       if: github.event == 'push'
+       env:
+         NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
