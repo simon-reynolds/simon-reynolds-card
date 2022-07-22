@@ -1,10 +1,10 @@
 'use strict'
 
 // Pull in our modules
-const chalk = require('chalk')
-const boxen = require('boxen')
-const fs = require('fs')
-const path = require('path')
+import chalk from 'chalk'
+import boxen from 'boxen'
+import { writeFileSync } from 'fs'
+import { join } from 'path'
 
 // Define options for Boxen
 const options = {
@@ -17,7 +17,7 @@ const options = {
 const data = {
   name: chalk.white('               Simon Reynolds'),
   handle: chalk.white('simon-reynolds'),
-  work: chalk.white('Senior .NET Developer at Greenfinch Technology'),
+  work: chalk.white('Senior .NET Developer at TEKenable'),
   languages: chalk.white('C# | F# | SQL | JavaScript | CSS | HTML '),
   twitter: chalk.gray('https://twitter.com/') + chalk.cyan('ImSimonReynolds'),
   npm: chalk.gray('https://npmjs.com/') + chalk.red('~simon-reynolds'),
@@ -68,4 +68,5 @@ const output = heading + // data.name + data.handle
                webing + newline + newline + // data.labelWeb + data.web
                carding // data.labelCard + data.npx
 
-fs.writeFileSync(path.join(__dirname, 'bin/output'), chalk.green(boxen(output, options)))
+const filePath = import.meta.url.replace('file:', '').replace('build.mjs', '')
+writeFileSync(join(filePath, 'bin/output'), chalk.green(boxen(output, options)))

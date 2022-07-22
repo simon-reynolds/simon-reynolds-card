@@ -3,7 +3,9 @@
 
 'use strict'
 
-const fs = require('fs')
-const path = require('path')
-const output = fs.readFileSync(path.join(__dirname, 'output'), 'utf8')
+import { readFileSync } from 'fs'
+import { join } from 'path'
+
+const filePath = import.meta.url.replace('file:', '').replace('card.js', '')
+const output = readFileSync(join(filePath, 'output'), 'utf8')
 console.log(output)

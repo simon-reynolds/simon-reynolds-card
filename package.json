@@ -1,10 +1,10 @@
 {
   "name": "simonreynolds",
-  "version": "1.0.3",
-  "description": "A personal card for Simon Reynolds (@simontaite)",
+  "version": "1.0.4",
+  "description": "A personal card for Simon Reynolds (@simonreynolds)",
   "main": "/bin/card.js",
   "bin": {
-    "simontaite": "./bin/card.js"
+    "simonreynolds": "./bin/card.js"
   },
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "prepare": "npm run build",
-    "build": "node build.js",
+    "build": "node build.mjs",
     "dev": "npm run build && node ./bin/card.js",
     "lint": "standard",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -27,6 +27,7 @@
   ],
   "author": "Simon Reynolds <simon@simonreynolds.ie> (https://simonreynolds.ie)",
   "license": "MIT",
+  "type": "module",
   "files": [
     "bin/card.js",
     "bin/output"
