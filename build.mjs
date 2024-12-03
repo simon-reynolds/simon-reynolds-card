@@ -13,60 +13,64 @@ const options = {
   borderStyle: 'round'
 }
 
+const labels = {
+  Name: chalk.white.bold('             '),
+  Aka: chalk.white.bold('        AKA:'),
+  Work: chalk.white.bold('       Work:'),
+  Languages: chalk.white.bold('  Languages:'),
+  //Twitter: chalk.white.bold('    Twitter:'),
+  Bluesky: chalk.white.bold('    BlueSky:'),
+  npm: chalk.white.bold('        npm:'),
+  GitHub: chalk.white.bold('     GitHub:'),
+  NuGet: chalk.white.bold('      NuGet:'),
+  LinkedIn: chalk.white.bold('   LinkedIn:'),
+  Web: chalk.white.bold('        Web:'),
+  Card: chalk.white.bold('       Card:')
+}
+
 // Text + chalk definitions
 const data = {
-  name: chalk.white('               Simon Reynolds'),
+  name: chalk.white('Simon Reynolds'),
   handle: chalk.white('simon-reynolds'),
   work: chalk.white('Senior .NET Developer at TEKenable'),
   languages: chalk.white('C# | F# | SQL | JavaScript | CSS | HTML '),
-  twitter: chalk.gray('https://twitter.com/') + chalk.cyan('ImSimonReynolds'),
+  //twitter: chalk.gray('https://twitter.com/') + chalk.cyan('ImSimonReynolds'),
+  bluesky: chalk.gray('https://bsky.app/profile/') + chalk.blueBright('simonreynolds.ie'),
   npm: chalk.gray('https://npmjs.com/') + chalk.red('~simon-reynolds'),
   github: chalk.gray('https://github.com/') + chalk.green('simon-reynolds'),
-  bitbucket: chalk.gray('https://bitbucket.org/') + chalk.yellow('simon-reynolds'),
   nuget: chalk.gray('https://www.nuget.org/profiles/') + chalk.magenta('simonreynolds'),
   linkedin: chalk.gray('https://linkedin.com/in/') + chalk.blue('simonreynolds7'),
   web: chalk.gray('https://simonreynolds.ie'),
-  npx: chalk.red('npx') + ' ' + chalk.white('simonreynolds'),
-  labelAka: chalk.white.bold('        AKA:'),
-  labelWork: chalk.white.bold('       Work:'),
-  labelLanguages: chalk.white.bold('  Languages:'),
-  labelTwitter: chalk.white.bold('    Twitter:'),
-  labelnpm: chalk.white.bold('        npm:'),
-  labelGitHub: chalk.white.bold('     GitHub:'),
-  labelBitBucket: chalk.white.bold('  BitBucket:'),
-  labelNuGet: chalk.white.bold('      NuGet:'),
-  labelLinkedIn: chalk.white.bold('   LinkedIn:'),
-  labelWeb: chalk.white.bold('        Web:'),
-  labelCard: chalk.white.bold('       Card:')
+  npx: chalk.red('npx') + ' ' + chalk.white('simonreynolds')
 }
 
 // Actual strings we're going to output
 const newline = '\n'
-const heading = `${data.name} / ${data.handle}`
-const working = `${data.labelWork}  ${data.work}`
-const languageing = `${data.labelLanguages}  ${data.languages}`
-const twittering = `${data.labelTwitter}  ${data.twitter}`
-const npming = `${data.labelnpm}  ${data.npm}`
-const githubing = `${data.labelGitHub}  ${data.github}`
-const bitbucketing = `${data.labelBitBucket}  ${data.bitbucket}`
-const nugeting = `${data.labelNuGet}  ${data.nuget}`
-const linkedining = `${data.labelLinkedIn}  ${data.linkedin}`
-const webing = `${data.labelWeb}  ${data.web}`
-const carding = `${data.labelCard}  ${data.npx}`
+const heading = `${labels.Name} ${data.name} / ${data.handle}`
+const working = `${labels.Work}  ${data.work}`
+const languageing = `${labels.Languages}  ${data.languages}`
+//const twittering = `${labels.Twitter}  ${data.twitter}`
+const blueskying = `${labels.Bluesky}  ${data.bluesky}`
+const npming = `${labels.npm}  ${data.npm}`
+const githubing = `${labels.GitHub}  ${data.github}`
+const nugeting = `${labels.NuGet}  ${data.nuget}`
+const linkedining = `${labels.LinkedIn}  ${data.linkedin}`
+const webing = `${labels.Web}  ${data.web}`
+const carding = `${labels.Card}  ${data.npx}`
 
 // Put all our output together into a single variable so we can use boxen effectively
 const output = heading + // data.name + data.handle
                newline + newline + // Add one whole blank line
-               working + newline + // data.labelWork + data.work
-               languageing + newline + newline + // data.labelOpenSource + data.opensource
-               twittering + newline + // data.labelTwitter + data.twitter
-               npming + newline + // data.labelnpm + data.npm
-               githubing + newline + // data.labelGitHub + data.github
-               bitbucketing + newline +
+               working + newline + // labels.Work + data.work
+               languageing + newline + newline + // labels.OpenSource + data.opensource
+               //twittering + newline + // labels.Twitter + data.twitter
+               blueskying + newline + // labels.BlueSky + data.bluesky
+               npming + newline + // labels.npm + data.npm
+               githubing + newline + // labels.GitHub + data.github
                nugeting + newline +
-               linkedining + newline + // data.labelLinkedIn + data.linkedin
-               webing + newline + newline + // data.labelWeb + data.web
-               carding // data.labelCard + data.npx
+               linkedining + newline + // labels.LinkedIn + data.linkedin
+               webing + newline + newline + // labels.Web + data.web
+               carding // labels.Card + data.npx
 
 const filePath = import.meta.url.replace('file:', '').replace('build.mjs', '')
 writeFileSync(join(filePath, 'bin/output'), chalk.green(boxen(output, options)))
